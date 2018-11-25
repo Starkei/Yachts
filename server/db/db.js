@@ -13,6 +13,7 @@ const Partner = require("./models/partner.model")(connection);
 const db = {};
 
 Accessory.hasMany(AccessoryToBoat);
+Accessory.belongsTo(Partner);
 
 Partner.hasMany(Accessory);
 

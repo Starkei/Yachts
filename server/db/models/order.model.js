@@ -14,5 +14,5 @@ module.exports = connection => {
         }
     });
 
-    return Order
+    return Order;
 };
