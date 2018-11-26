@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AccessoryService {
-
-  baseUrl: string = 'http://localhost:8080/accessory';
+export class AccessoryToBoatService {
+ 
+  baseUrl: string = 'http://localhost:8080/accessoryToBoat';
 
   constructor(private http: HttpClient) {}
 
@@ -15,8 +15,8 @@ export class AccessoryService {
     return this.http.get<any[]>(this.baseUrl+"/all");
   }
 
-  getByPrice(price: number): Observable<any[]> {
-    const url = `${this.baseUrl}/findByPrice/${price}`;
+  getByNum(num: number): Observable<any[]> {
+    const url = `${this.baseUrl}/findByNum/${num}`;
     return this.http.get<any[]>(url);
   }
 }

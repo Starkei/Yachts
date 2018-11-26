@@ -12,6 +12,8 @@ export class AccessoryTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<any>;
 
+  inputPrice: number = 100;
+
   displayedColumns = ['id', 'name', 'price'];
 
   constructor(private accessoryService: AccessoryService) {
@@ -20,5 +22,13 @@ export class AccessoryTableComponent implements OnInit {
 
   ngOnInit() {
     this.accessoryService.getAll().subscribe(data => this.dataSource = new MatTableDataSource(data));
+  }
+
+  getWhereMoreThan() {
+    this.accessoryService.getByPrice(this.inputPrice).subscribe(data => this.dataSource = new MatTableDataSource(data));
+  }
+
+  getTotalCost() {
+    return this.dataSource.data.map(item => item.price).reduce((acc, value) => acc + value, 0);
   }
 }

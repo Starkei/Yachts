@@ -14,13 +14,24 @@ const db = {};
 
 Accessory.hasMany(AccessoryToBoat);
 Accessory.belongsTo(Partner);
+Accessory.belongsTo(OrderDetail);
 
 Partner.hasMany(Accessory);
 
 Boat.hasMany(AccessoryToBoat);
+Boat.belongsTo(Order);
+
+AccessoryToBoat.belongsTo(Accessory);
+AccessoryToBoat.belongsTo(Boat);
+
 
 Order.hasMany(Boat);
 Order.hasMany(OrderDetail);
+Order.belongsTo(SalesPerson);
+Order.belongsTo(Customer);
+
+OrderDetail.hasMany(Accessory);
+OrderDetail.belongsTo(Order);
 
 SalesPerson.hasMany(Order);
 

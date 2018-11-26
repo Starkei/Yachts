@@ -21,11 +21,4 @@ app.listen(8080, "localhost",() =>{
     console.log("Server has started!");
 });
 
-app.get("/", (req, res)=>{
-    db.Accessory.findAll().then(data => res.send(data));
-});
-
-app.post("/add", (req, res) =>{
-    res.send(req);
-});
-
+require("./routing/controllers")(app);

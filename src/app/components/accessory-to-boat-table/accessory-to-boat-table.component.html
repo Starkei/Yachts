@@ -1,7 +1,12 @@
 <mat-toolbar>
-  <span>Accessories</span>
+  <span>Accessories to boat</span>
   <span>
-    <button mat-button (click)="getWhereMoreThan()">Select where price more then 100$ input</button>
+    <mat-form-field>
+      <input matInput type="text" name="" id="" placeholder="Enter inventory number">
+    </mat-form-field>
+  </span>
+  <span>
+    <button mat-button (click)="getWhereMoreThan()">Select where inventory number less then input</button>
   </span>
   <span>
       <button mat-button (click)="ngOnInit()">Select all</button>
@@ -14,24 +19,20 @@
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
-      <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+
+    <ng-container matColumnDef="num">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Inventory number</th>
+      <td mat-cell *matCellDef="let row">{{row.num}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
-      <td mat-footer-cell *matFooterCellDef></td>
-    </ng-container>
-
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-      <td mat-cell *matCellDef="let row">{{row.price | currency}}$</td>
-      <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+      <td mat-cell *matCellDef="let row">{{row.accessory.name}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
   </table>
 
   <mat-paginator #paginator
