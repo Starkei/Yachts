@@ -17,14 +17,15 @@ connection.sequelize
                 .then(() => console.log("Success!"))
                 .catch(err => console.log(err));
 
+app.listen(8080, "localhost",() =>{
+    console.log("Server has started!");
+});
 
+app.get("/", (req, res)=>{
+    db.Accessory.findAll().then(data => res.send(data));
+});
 
-db.Partner.findAll().then((data) => {
-
-    db.Accessory.create({
-        name: 'good',
-        price: 100,
-        parnerId: data[0].dataValues.id
-    });
+app.post("/add", (req, res) =>{
+    res.send(req);
 });
 
