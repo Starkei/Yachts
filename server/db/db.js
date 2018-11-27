@@ -1,7 +1,6 @@
 const connection = require("./connetion");
 
 const Customer = require("./models/customer.model")(connection);
-const Contract = require("./models/contract.model")(connection);
 const SalesPerson = require("./models/salesPerson.model")(connection);
 const Order = require("./models/order.model")(connection);
 const Boat = require("./models/boat.model")(connection);
@@ -38,7 +37,6 @@ SalesPerson.hasMany(Order);
 Customer.hasMany(Order);
 
 db.Customer = Customer;
-db.Contract = Contract;
 db.SalesPerson = SalesPerson;
 db.Order = Order;
 db.Boat = Boat;
