@@ -1,26 +1,25 @@
 const db = require("../../db/db");
 
-const controller = "/accessoryToBoat";
+const controller = "/orderDetails";
 
 module.exports = app => {
 
     app.get(controller + "/all", (req, res)=>{
-        db.AccessoryToBoat.findAll({
+        db.OrderDetail.findAll({
             attributes: ['id', 'num'],
             include: [
-                {model: db.Accessory, attributes: ['name']},
+                {model: db.Order, attributes: ['num']},
             ]
         }).then(data => {res.send(data); console.log(data)});
     });
     
-    app.get(controller + "/findByNum/:num", (req, res) => {
-        db.AccessoryToBoat.findAll({
+    app.get(controller + "/findByName/:name", (req, res) => {
+        db.OrderDetail.findAll({
             attributes: ['id', 'num'],
-            where: {
-                num: { lt: Number(req.params.num)}
-            },
             include: [
-                {model: db.Accessory, attributes: ['name']},
+                {model: db.Order, attributes: ['num'], include: [
+                    {model: db.SalesPerson, where: {fullName: req.params.name}}
+                ]},
             ]
         })
         .then(data => {res.send(data); console.log(data)});

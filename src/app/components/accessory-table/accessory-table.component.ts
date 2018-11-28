@@ -14,7 +14,7 @@ export class AccessoryTableComponent implements OnInit {
 
   inputPrice: number = 100;
 
-  displayedColumns = ['id', 'name', 'price'];
+  displayedColumns = ['id', 'name', 'orderDetail', 'price'];
 
   constructor(private accessoryService: AccessoryService) {
     this.accessoryService.getAll().subscribe(data => this.dataSource = new MatTableDataSource(data));

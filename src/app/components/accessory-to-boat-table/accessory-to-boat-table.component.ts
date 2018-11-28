@@ -11,6 +11,8 @@ export class AccessoryToBoatTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<any>;
+  input: string;
+
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'num', 'name'];
@@ -21,5 +23,10 @@ export class AccessoryToBoatTableComponent implements OnInit {
 
   ngOnInit() {
     this.accessoryToBoatService.getAll().subscribe(data => this.dataSource = new MatTableDataSource(data));
+  }
+
+  selectLessThanInput() {
+    console.log("select less then input")
+    this.accessoryToBoatService.getByNum(Number(this.input)).subscribe(data => this.dataSource = new MatTableDataSource(data));
   }
 }

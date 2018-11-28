@@ -23,6 +23,12 @@
       <td mat-footer-cell *matFooterCellDef></td>
     </ng-container>
 
+    <ng-container matColumnDef="orderDetail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order ditail</th>
+      <td mat-cell *matCellDef="let row">{{row.orderDetail.num}}</td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
       <td mat-cell *matCellDef="let row">{{row.price | currency}}$</td>

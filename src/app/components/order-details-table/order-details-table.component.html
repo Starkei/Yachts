@@ -1,12 +1,7 @@
 <mat-toolbar>
-  <span>Accessories to boat</span>
+  <span>Order details</span>
   <span>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="input" name="" id="" placeholder="Enter inventory number">
-    </mat-form-field>
-  </span>
-  <span>
-    <button mat-button (click)="selectLessThanInput()">Select where inventory number less then input</button>
+      <button mat-button (click)="selectSalesByName()">Select orders where sale person is Jaelynn Costa</button>
   </span>
   <span>
       <button mat-button (click)="ngOnInit()">Select all</button>
@@ -22,13 +17,13 @@
     </ng-container>
 
     <ng-container matColumnDef="num">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Inventory number</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Number</th>
       <td mat-cell *matCellDef="let row">{{row.num}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.accessory.name}}</td>
+    <ng-container matColumnDef="order">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Order number</th>
+      <td mat-cell *matCellDef="let row">{{row.order.num}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

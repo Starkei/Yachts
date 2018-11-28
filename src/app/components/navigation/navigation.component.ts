@@ -17,7 +17,13 @@ export class NavigationComponent {
 
   links = [
     {path: '/accessories', title: 'Accessories'},
-    {path: '/accessoriesToBoat', title: 'Accessories to boat'}
+    {path: '/accessoriesToBoat', title: 'Accessories to boat'},
+    {path: '/partner', title: 'Partner'},
+    {path: '/orderDetails', title: 'Order details'},
+    {path: '/boat', title: 'Boat'},
+    {path: '/order', title: 'Order'},
+    {path: '/salesPerson', title: 'Sales person'},
+    {path: '/customer', title: 'Customer'}
   ];
 
   constructor(private breakpointObserver: BreakpointObserver) {}

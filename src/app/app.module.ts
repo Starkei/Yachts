@@ -12,6 +12,13 @@ import { AccessoryService } from './services/accessory.service';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AccessoryToBoatTableComponent } from './components/accessory-to-boat-table/accessory-to-boat-table.component';
+import { PartnerTableComponent } from './components/partner-table/partner-table.component';
+import { BoatTableComponent } from './components/boat-table/boat-table.component';
+import { OrderDetailsTableComponent } from './components/order-details-table/order-details-table.component';
+import { OrderTableComponent } from './components/order-table/order-table.component';
+import { SalesPersonTableComponent } from './components/sales-person-table/sales-person-table.component';
+import { CustomerTableComponent } from './components/customer-table/customer-table.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,13 @@ import { AccessoryToBoatTableComponent } from './components/accessory-to-boat-ta
     AccessoryTableComponent,
     AccessoryDialogComponent,
     NavigationComponent,
-    AccessoryToBoatTableComponent
+    AccessoryToBoatTableComponent,
+    PartnerTableComponent,
+    BoatTableComponent,
+    OrderDetailsTableComponent,
+    OrderTableComponent,
+    SalesPersonTableComponent,
+    CustomerTableComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +48,8 @@ import { AccessoryToBoatTableComponent } from './components/accessory-to-boat-ta
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [AccessoryService],
   bootstrap: [AppComponent]
